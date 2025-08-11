@@ -20,13 +20,20 @@ export default function Contact() {
     })
   }
 
-  const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
     e.preventDefault()
+    
+    // VERIFICAÇÃO ADICIONADA AQUI
+    if (!recaptchaRef.current) {
+      console.error("reCAPTCHA a referência não foi inicializada.");
+      setStatus('error');
+      return; // Impede a execução do resto da função
+    }
+
     setIsSubmitting(true)
     setStatus('')
 
     try {
-      // Execute reCAPTCHA
       const token = await recaptchaRef.current.executeAsync()
       
       const response = await fetch('https://qotdwocbcoirjlqjkjhq.supabase.co/functions/v1/send-email', {
@@ -36,9 +43,9 @@ export default function Contact() {
         },
         body: JSON.stringify({
           ...formData,
-          recipientEmail: '',
+          recipientEmail: '', // Você pode querer preencher isso
           token
-        })
+        } )
       })
 
       if (response.ok) {
@@ -48,10 +55,14 @@ export default function Contact() {
         setStatus('error')
       }
     } catch (error) {
+      console.error("Erro no envio do formulário ou reCAPTCHA:", error);
       setStatus('error')
     } finally {
       setIsSubmitting(false)
-      recaptchaRef.current.reset()
+      // VERIFICAÇÃO ADICIONADA AQUI TAMBÉM
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset()
+      }
     }
   }
 
