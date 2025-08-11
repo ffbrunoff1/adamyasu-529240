@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, BookOpen, Heart, Star, Sparkles } from 'lucide-react'
+import { ArrowRight, BookOpen, Heart, Star, Sparkles, User } from 'lucide-react'
 
 export default function Hero() {
   const scrollToSection = (href) => {
