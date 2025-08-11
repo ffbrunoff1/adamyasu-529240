@@ -45,12 +45,9 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         serif: ['Georgia', 'Cambria', 'serif'],
       },
-      backgroundImage: {
+       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'text-gradient':
-          'linear-gradient(135deg, #2C3E50 0%, #34495E 50%, #5D6D7E 100%)',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
   },
