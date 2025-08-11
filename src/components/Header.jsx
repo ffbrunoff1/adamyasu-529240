@@ -52,7 +52,7 @@ export default function Header() {
             transition={{ type: "spring", stiffness: 300 }}
             className="flex items-center space-x-3"
           >
-            <div className={`transition-all duration-300 ${isScrolled ? '' : 'filter invert'}`}>
+            <div className={`transition-all duration-300 ${isScrolled ? '' : 'invert'}`}>
               <img 
                 src="https://qotdwocbcoirjlqjkjhq.supabase.co/storage/v1/object/imagens.website.creation/adam-yasu/adam-yasu-logo-full-2025-08-11T16-18-38-751Z.svg"
                 alt="Adam Yasu"
